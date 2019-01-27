@@ -8,15 +8,15 @@ services:
       - mysql
     command: ["tail", "-f", "/dev/null"]
     volumes:
-      - ${GOPATH}:${GOPATH}
-    working_dir: ${GOPATH}
+      - ${EGOPATH}:${EGOPATH}
+    working_dir: ${EGOPATH}
     security_opt:
       - seccomp:unconfined
     build:
       context: ./
       dockerfile: Dockerfile
       args:
-        gopath: ${GOPATH}
+        gopath: ${EGOPATH}
 
 networks: 
   quyen-network:
