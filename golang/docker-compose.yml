@@ -2,12 +2,10 @@ version: '3'
  
 services:
   quyen-golang:
-    ports:
-      - "80:80"
-      - "8080:8080"
-      - "2345:2345"
     networks:
       - quyen-network
+    external_links:
+      - mysql
     command: ["tail", "-f", "/dev/null"]
     volumes:
       - ${GOPATH}:${GOPATH}
