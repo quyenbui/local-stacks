@@ -1,2 +1,3 @@
-mysql/data
-ubuntu
+/mysql/data
+/ubuntu
+.env
