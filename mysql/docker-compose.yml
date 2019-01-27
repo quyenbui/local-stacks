@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  quyen-mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/data:/var/lib/mysql
+      - ./data/logs:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      quyen-network:
+        aliases:
+          - mysql
+
+networks:
+  quyen-network:
+    external: true

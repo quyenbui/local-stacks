@@ -1,0 +1,25 @@
+version: '3'
+ 
+services:
+  quyen-golang:
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "2345:2345"
+    networks:
+      - quyen-network
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ${GOPATH}:${GOPATH}
+    working_dir: ${GOPATH}
+    security_opt:
+      - seccomp:unconfined
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        gopath: ${GOPATH}
+
+networks: 
+  quyen-network:
+    external: true

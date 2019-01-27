@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  quyen-php7-apache:
+    build: ./
+    ports:
+      - "80:80"
+      - "443:443"
+    external_links:
+      - mysql
+    volumes:
+      - ${PROJECTS_PATH}:${PROJECTS_PATH}
+    working_dir: ${PROJECTS_PATH}
+    networks:
+      - quyen-network
+
+networks: 
+  quyen-network:
+    external: true
