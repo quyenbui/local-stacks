@@ -1,0 +1,13 @@
+version: '3'
+ 
+services:
+  gohugo:
+    command: ["tail", "-f", "/dev/null"]
+    ports:
+      - 1313:1313
+    volumes:
+      - ${PROJECTS_PATH}:${PROJECTS_PATH}
+    working_dir: ${PROJECTS_PATH}
+    build:
+      context: ./
+      dockerfile: Dockerfile
